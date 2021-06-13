@@ -1,14 +1,22 @@
 package elnat.velo.human_interface;
 
+import elnat.velo.human_interface.configurations.ComponentConfiguration;
+
 public class Component {
 
 	private java.awt.Component component;
 	private String position;
+	private ComponentConfiguration config;
 	
-	public Component(java.awt.Component component, String center) {
+	public Component(java.awt.Component component, ComponentConfiguration config) {
 		super();
 		this.component = component;
-		this.position = center;
+		this.config = config;		
+	}
+	public void paint() {
+		component.setFont(config.getFont());
+		component.setBackground(config.getBgColor());
+		component.setForeground(config.getFgColor());		
 	}
 	public java.awt.Component getComponent() {
 		return component;
